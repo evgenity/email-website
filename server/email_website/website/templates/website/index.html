@@ -62,7 +62,12 @@
         </pre>
 
         <p>
-          <a href="{% url 'login' %}" class="btn btn-primary my-2">Get API key</a>
+          {% if user.is_authenticated %}
+            <p>Your API key is: <p> {{ api_key }}
+              <p>Emails will be sent to: {{ user.username }}<p> 
+          {% else %}
+            <a href="{% url 'signup' %}" class="btn btn-primary my-2">Get API key</a>
+          {% endif %}
         </p>
       </div>
     </div>
