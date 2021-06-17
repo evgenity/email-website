@@ -1,11 +1,11 @@
 <form action="{% url 'form' api_key %}" method="post">
 {% csrf_token %}
 <fieldset>
-    <legend><h1>Test form submission here </h1></legend>
+    <legend><h1>Test your form submission here </h1></legend>
     
-
-    <p>Your link to post form data is: {{ api_key }}</p>
-    <p>Form data will be sent to : {{ subscription.email }}</p>
+    <p>Make sure your form has the <code>method="post"</code> attribute.</p>
+    <p>Your link to POST forms is: https://email-website.com/form/{{ api_key }}</p>
+    <p>Form data will be sent to: {{ subscription.email }}</p>
     {% if post_data %}<p><strong>{{ post_data }}</strong></p>{% endif %}
         <label for="email">Your Email</label>
 		<input name="Email" id="email" type="email">

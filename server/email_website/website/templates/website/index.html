@@ -49,10 +49,10 @@
     <div class="row py-lg-5">
       <div class="col-lg-8 col-md-8 mx-auto">
         <h1 class="fw-light">Simply send email from a static HTML website</h1>
-        <p class="lead text-muted"> No PHP or special backend required. Sign in, get a secret key and you can use javascript API or send HTML form from your website to your email.</p>
+        <p class="lead text-muted"> No PHP or special backend required. Sign in, get a secret key and receive HTML form submissons from your website to your email. <br>Copy the following code to your website and style it appropriately.</p>
         
         <pre style="text-align: left" class="prettyprint" id="quine">
-&ltform action="https://email-website.com/form/{YOUR_API_KEY}" method="post"&gt
+&ltform action="https://email-website.com/form/{{ api_key }}" method="post"&gt
   &ltlabel for="email"&gtYour Email&lt/label&gt
   &ltinput name="Email" id="email" type="email"&gt
   &ltlabel for="message"&gtYour Message&lt/label&gt
@@ -63,8 +63,8 @@
 
         <p>
           {% if user.is_authenticated %}
-            <p>Your API key is: <p> {{ api_key }}
-              <p>Emails will be sent to: {{ user.username }}<p> 
+            <p><code class="small"> Your API key is: {{ api_key }} </code> </p>
+              <p><code class="small"> Emails will be sent to: {{ user.username }} </code> </p>
           {% else %}
             <a href="{% url 'signup' %}" class="btn btn-primary my-2">Get API key</a>
           {% endif %}
@@ -80,25 +80,6 @@
       <div class="col-12 col-md">
         <small class="d-block mb-3 text-muted">&copy; 2017 - 2021</small>
       </div>
-      <!-- <div class="col-6 col-md">
-        <h5>Features</h5>
-        <ul class="list-unstyled text-small">
-          <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Integrations</a></li>
-        </ul>
-      </div>
-      <div class="col-6 col-md">
-        <h5>Resources</h5>
-        <ul class="list-unstyled text-small">
-          <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Tutorial</a></li>
-        </ul>
-      </div>
-      <div class="col-6 col-md">
-        <h5>About</h5>
-        <ul class="list-unstyled text-small">
-          <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Pricing</a></li>
-          
-        </ul>
-      </div> -->
     </div>
   </footer>
 </div>
