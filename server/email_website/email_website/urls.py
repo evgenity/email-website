@@ -17,8 +17,10 @@ from django.contrib import admin
 from django.urls import path, include
 
 import subscriptions
+from website.views import home
 
 urlpatterns = [
+	path('', home, name='home'),
     path('admin/', admin.site.urls),
     path('subscription/', include('subscriptions.urls')),
     path('form/<str:api_key>/', subscriptions.views.form, name='form')
