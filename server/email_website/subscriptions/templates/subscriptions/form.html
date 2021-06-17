@@ -1,0 +1,13 @@
+<form action="{% url 'subscriptions:form' api_key %}" method="post">
+{% csrf_token %}
+<fieldset>
+    <legend><h1>{{ subscription.email }}</h1></legend>
+    <h2>{{ api_key }}</h2>
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+        <label for="email">Your Email</label>
+		<input name="Email" id="email" type="email">
+		<label for="message">Your Message</label>
+		<textarea name="Message" id="message"> </textarea>
+		<button type="submit">Submit</button>
+</fieldset>
+</form>
