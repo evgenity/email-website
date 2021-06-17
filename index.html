@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Email-website</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?autoload=true&amp;skin=sunburst&amp;lang=css" defer=""></script>
+</head>
+<body>
+	<div class="container">
+  <header class="blog-header py-3">
+    <div class="row flex-nowrap justify-content-between align-items-center">
+      <div class="col-3 pt-1">
+        <a class="d-flex align-items-center text-dark text-decoration-none" href="#"><span class="fs-4">Email website</span></a>
+      </div>
+      <div class="col-3 text-center">
+      </div>
+      <div class="col-3 d-flex justify-content-end align-items-center">
+        <a class="btn btn-sm btn-outline-secondary" href="#" style="margin-right: 5px">Sign up</a>
+        <a class="btn btn-sm btn-outline-secondary" href="#" aria-label="Search">Sign in
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-8 col-md-8 mx-auto">
+        <h1 class="fw-light">Simply send email from a static HTML website</h1>
+        <p class="lead text-muted"> No PHP or special backend required. Sign in, get a secret key and you can use javascript API or send HTML form from your website to your email.</p>
+        
+        <pre style="text-align: left" class="prettyprint" id="quine">
+&ltform action="https://email-website.com/form/{YOUR_API_KEY}" method="post"&gt
+  &ltlabel for="email"&gtYour Email&lt/label&gt
+  &ltinput name="Email" id="email" type="email"&gt
+  &ltlabel for="message"&gtYour Message&lt/label&gt
+  &lttextarea name="Message" id="message"&gt &lt/textarea&gt
+  &ltbutton type="submit"&gtSubmit&lt/button&gt
+&lt/form>
+        </pre>
+
+        <p>
+          <a href="#" class="btn btn-primary my-2">Get API key</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+  <footer class="pt-4 my-md-5 pt-md-5 border-top">
+    <div class="row">
+      <div class="col-12 col-md">
+        <small class="d-block mb-3 text-muted">&copy; 2017 - 2021</small>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Features</h5>
+        <ul class="list-unstyled text-small">
+          <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Integrations</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Resources</h5>
+        <ul class="list-unstyled text-small">
+          <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Tutorial</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>About</h5>
+        <ul class="list-unstyled text-small">
+          <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Pricing</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </footer>
+</div>
+
+</body>
+</html>
