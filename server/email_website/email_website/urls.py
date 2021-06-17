@@ -17,11 +17,14 @@ from django.contrib import admin
 from django.urls import path, include
 
 import subscriptions
-from website.views import home
+from website.views import home, signup
 
 urlpatterns = [
 	path('', home, name='home'),
     path('admin/', admin.site.urls),
     path('subscription/', include('subscriptions.urls')),
-    path('form/<str:api_key>/', subscriptions.views.form, name='form')
+    path('form/<str:api_key>/', subscriptions.views.form, name='form'),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/signup', signup, name='signup')
+       
 ]

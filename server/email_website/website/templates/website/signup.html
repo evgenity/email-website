@@ -1,0 +1,17 @@
+
+
+<form method="post">
+	{% csrf_token %}
+	<p>
+		<label for="id_username">Email:</label>
+		<input type="text" name="username" maxlength="150" autocapitalize="none" autocomplete="username" autofocus="" required="" id="id_username"></p>
+	<p>
+		<label for="id_password1">Password:</label>
+		<input type="password" name="password1" autocomplete="new-password" required="" id="id_password1">
+	</p>
+	<p>
+		<label for="id_password2">Password confirmation:</label>
+		<input type="password" name="password2" autocomplete="new-password" required="" id="id_password2"> 
+	</p>
+	<button type="submit">Sign up</button>
+</form>
