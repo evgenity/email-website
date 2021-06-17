@@ -22,14 +22,19 @@ def detail(request, subscription_id):
 
 
 def form(request, api_key):
-    subscription = Subscription.objects.filter(api_key=api_key)[0]
-    post_data = request.POST.dict()
-    post_data.pop("csrfmiddlewaretoken", None)
-    if request.method == 'POST':
-    	form_data = FormData(subscription = subscription, form_data = str(post_data), send_date=datetime.now())
-    	form_data.save()
-    return render(request, 'subscriptions/form.html', {
-        'subscription': subscription,
-        'error_message': post_data,
+	try:
+		subscription = Subscription.objects.get(api_key=api_key)
+	except:
+		return HttpResponse('YOUR_API_KEY is not recognised. Please get a key on your profile page at https://email-website.com and use it.')
+	if request.method == 'POST':
+		post_data = request.POST.dict()
+		post_data.pop("csrfmiddlewaretoken", None)
+		form_data = FormData(subscription = subscription, form_data = str(post_data), send_date=datetime.now())
+		form_data.save()
+	else:
+		post_data = None
+	return render(request, 'subscriptions/form.html', {
+		'subscription': subscription,
+		'post_data': post_data,
         'api_key': api_key
     })

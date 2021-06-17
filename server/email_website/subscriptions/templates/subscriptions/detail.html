@@ -3,6 +3,6 @@
 <p>{{ subscription.api_key }}</p>
 <ul>
 {% for formdata in subscription.formdata_set.all %}
-    <li>{{ formdata.form_email }}</li>
+    <li>{{ formdata.send_date }}</li>
 {% endfor %}
 </ul>
