@@ -52,13 +52,23 @@
         <p class="lead text-muted"> No PHP or special backend required. Sign in, get a secret key and receive HTML form submissons from your website to your email. <br>Copy the following code to your website and style it appropriately.</p>
         
         <pre style="text-align: left" class="prettyprint" id="quine">
-&ltform action="https://email-website.com/form/{{ api_key }}" method="post"&gt
+{% if api_key%}
+&ltform action="https://email-website.com/form/{{ api_key}}" method="post"&gt
   &ltlabel for="email"&gtYour Email&lt/label&gt
   &ltinput name="Email" id="email" type="email"&gt
   &ltlabel for="message"&gtYour Message&lt/label&gt
   &lttextarea name="Message" id="message"&gt &lt/textarea&gt
   &ltbutton type="submit"&gtSubmit&lt/button&gt
 &lt/form>
+{% else %}
+&ltform action="https://email-website.com/form/{{ api_key}}" method="post"&gt
+  &ltlabel for="email"&gtYour Email&lt/label&gt
+  &ltinput name="Email" id="email" type="email"&gt
+  &ltlabel for="message"&gtYour Message&lt/label&gt
+  &lttextarea name="Message" id="message"&gt &lt/textarea&gt
+  &ltbutton type="submit"&gtSubmit&lt/button&gt
+&lt/form>
+{% endif %}
         </pre>
 
         <p>
