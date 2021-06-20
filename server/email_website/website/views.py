@@ -41,6 +41,7 @@ def create_subscription(user):
 def signup(request):
 	template = loader.get_template('website/signup.html')
 	context = {}
+	error_msg = None
 
 	if request.method == 'POST':
 		form = UserCreationForm(request.POST)
@@ -52,6 +53,11 @@ def signup(request):
 			login(request, user)
 			create_subscription(user)
 			return redirect('home')
+		else:
+			error_msg = form.errors
+			form = UserCreationForm()
+			
+
 	else:
 		form = UserCreationForm()
-	return render(request, 'website/signup.html', {'form': form}) 
+	return render(request, 'website/signup.html', {'form': form, 'error_msg': error_msg}) 

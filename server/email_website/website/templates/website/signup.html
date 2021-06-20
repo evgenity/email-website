@@ -42,6 +42,9 @@
 	<form method="post">
 		<h1 class="h3 mb-3 fw-normal">Please sign up</h1>
 		{% csrf_token %}
+		{% if error_msg %}
+		{{error_msg}} 
+		{% endif %}
 		<div class="form-floating" >
 			<input type="text" name="username" maxlength="150" autocapitalize="none" autocomplete="username" autofocus="" required="" id="id_username" style="margin-bottom: -1px; border-bottom-right-radius: 0; border-bottom-left-radius: 0;" class="form-control">
 			<label for="id_username">Email:</label>
